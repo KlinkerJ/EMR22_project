@@ -30,7 +30,7 @@ display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path
 #listener = tf.TransformListener()
 #(trans,rot) = listener.lookupTransform('/world', '/object_9', rospy.Time())
 
-def move_robot(x,y,z, debug=False):
+def move_robot(x,y,z, debug=False, wait=True):
     if debug:
         input("Start")
     group.set_planner_id("EMR")
@@ -52,7 +52,7 @@ def move_robot(x,y,z, debug=False):
     #input("confirm moving ur3_arm to this position")
     t1 = time.time()
     group.set_pose_target(pose_goal)
-    group.go(wait=True)
+    group.go(wait=wait)
     print(t1 - time.time())
     #sucess = group.go(wait=True)
     #print("suc?", sucess)
@@ -61,10 +61,11 @@ def move_robot(x,y,z, debug=False):
 
     return
 
-def move_cartesian(x,y,z, debug=False):
+def move_cartesian(x,y,z, debug=False, wait=True, stopBefore=False):
 
     if debug:
         input("Start")
+    if stopBefore: group.stop()
     group.set_planner_id("EMR")
     group.allow_replanning(True)
     group.set_goal_tolerance(0.005)
@@ -89,7 +90,7 @@ def move_cartesian(x,y,z, debug=False):
 
     # Note: We are just planning, not asking move_group to actually move the robot yet:
     t1 = time.time()
-    group.execute(plan, wait=True)
+    group.execute(plan, wait=wait)
     print(t1 - time.time())
     #sucess = group.go(wait=True)
     #print("suc?", sucess)
