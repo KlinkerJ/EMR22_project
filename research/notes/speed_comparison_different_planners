@@ -1,0 +1,42 @@
+Speed Comparison between Algorithms in OpenMotionPlanningLibrary with ROS
+
+Task: Move UR5 from a defined, current position to home position
+Options: 
+	Planning Time: 5.0s
+	Planning Attemps: 10
+	Velocity Scaling: 0.10
+	Accel. Scaling: 0.10
+
+
+BFMT: 5.033
+BKPIECE: 6.957
+BiEST: 0.359
+BiTRRT: 0.566
+EST: 1.885
+FMT: Failed
+KPIECE: 1.232
+LBKPIECE: 5.889
+LBTTRT: 5.031
+LazyPRM: Failed
+LazyPRMStar: 5.006
+PDST: 1.118
+PRM: 0.452
+PRMstar: 5.222
+ProjEST: 1.059
+RRTConnect: 0.131
+RRT: 0.824
+RRTStar: 5.017
+SBL: 1.325
+SPARS: 5.296
+SPARStwo: 5.135
+STRIDE: 1.236
+TRRT: 0.672
+
+This can be optimized by using the fastest from above, RRTConnect:
+with options:
+	Planning Time: 1.0s
+	Planning Attemps: 1
+
+to 0.045s to 0.120s
+
+The Options "Collision-aware IK" and "Approx IK Solutions" do not seem to have an effect for our planning time
