@@ -2,6 +2,8 @@ import torch
 import cv2 #sudo apt-get install python3-opencv
 import time
 
+from move_robot import move_robot
+
 #Model
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s')  # or yolov5n - yolov5x6, custom
 
@@ -43,4 +45,5 @@ while not ball_detected:
 
         if Debug:
             ball_detected = True
+            #move_robot(0,0,0,False)
             results.show()
