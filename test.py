@@ -1,5 +1,5 @@
 import torch
-import cv2
+import cv2 #sudo apt-get install python3-opencv
 import time
 
 #Model
