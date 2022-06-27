@@ -26,3 +26,5 @@ You may have to use a different webcam-id for your webcam / robot-mounted cam. I
 **Warning**: You should try our control system in simulation first and adapt Kp in `nodes/yolo_move_robot.py`!
 
 **Hint**: You can not view the detected objects in Rqt if you called the move-Script! 
+
+**Hint**: Our script reacts only to the object class `bottle`! You can change this as you want to one of the Yolov5-Object-Classes in `nodes/yolo_img_pub.py` and `nodes/yolo_move_robot.py`! The scripts can only recognize one object!
