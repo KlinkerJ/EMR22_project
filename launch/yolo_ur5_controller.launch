@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- launch yolo_node -->
+  <include 
+    file="$(find ur5_gripper_moveit_config)/launch/demo_gazebo.launch" >
+  </include>
+   
+   
+  <!-- launch yolo_robot_mover -->
+  <node pkg="emr22_project" 
+        type="yolo_move_robot.py" 
+        name="yolo_robot_mover" 
+        output="screen" >
+  </node>
+  
+</launch>

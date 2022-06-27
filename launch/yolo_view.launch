@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- yolo_img_view.py -->
+  <node pkg="emr22_project" 
+        type="yolo_img_pub.py" 
+        name="yolo_img_publisher" 
+        output="screen" >
+  </node>
+  
+  <!-- rqt -->
+  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui"/> 
+  
+</launch>
