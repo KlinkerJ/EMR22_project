@@ -7,17 +7,15 @@ import cv2
 import torch
     
 
-def talker(object_str = "bottle", debug = False):
-    # init node
-    rospy.init_node('yolo_image_node', anonymous=False)
+def talker(camera_id = 0, yolo_version = "yolov5s", object_str = "bottle", debug = False):
     pub = rospy.Publisher('/yolo_prediction_img', Image, queue_size=1)
 
     # init yolo model
-    model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+    model = torch.hub.load('ultralytics/yolov5', yolo_version)
 
     # init camera and cv2
     bridge = CvBridge()
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(camera_id)
     while not cap.isOpened():
         rospy.sleep(1)
     print("VideoCapture.isOpened: ", cap.isOpened())
@@ -70,6 +68,11 @@ def talker(object_str = "bottle", debug = False):
 
 if __name__ == '__main__':
     try:
-        talker(object_str = "bottle", debug = False)
+        #Init node
+        rospy.init_node('yolo_image_node', anonymous=False)
+        object_str = rospy.get_param('~object') or "bottle"
+        camera_id = int(rospy.get_param('~cameraid')) or 0
+        yolo_version = rospy.get_param('~yolo') or "yolov5s"
+        talker(camera_id = camera_id, yolo_version = yolo_version, object_str = object_str, debug = False)
     except rospy.ROSInterruptException:
         pass

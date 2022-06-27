@@ -6,6 +6,9 @@
         type="yolo_img_pub.py" 
         name="yolo_img_publisher" 
         output="screen" >
+        <param name="cameraid" value="0" />
+        <param name="object" value="bottle" />
+        <param name="yolo" value="yolov5s" />
   </node>
   
   <!-- rqt -->

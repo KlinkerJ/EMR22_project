@@ -12,6 +12,9 @@
         type="yolo_move_robot.py" 
         name="yolo_robot_mover" 
         output="screen" >
+        <param name="cameraid" value="0" />
+        <param name="object" value="bottle" />
+        <param name="yolo" value="yolov5s" />
   </node>
   
 </launch>
