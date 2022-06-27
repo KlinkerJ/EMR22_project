@@ -10,7 +10,7 @@ Repository for Embedded Robotics 2022 by Jonas Klinker (@KlinkerJ) and Lennart F
 # Usage
 
 ## Find the correct webcam
-You may have to use a different webcam-id for your webcam / robot-mounted cam. In our scripts, we are using the camera id 0. If that is not the right id, you can change it in `nodes/yolo_img_pub.py` and `nodes/yolo_move_robot.py`.
+You may have to use a different webcam-id for your webcam / robot-mounted cam. In our scripts, we are using the camera id 0. If that is not the right id, you can change it in `nodes/yolo_img_pub.py` and `nodes/yolo_move_robot.py`. You can also use our script to detect attached and usable cameras (`scripts/detect_cam.py`).
 
 ## Run only yolov5 and view the results in Rqt
 1. Start our script
