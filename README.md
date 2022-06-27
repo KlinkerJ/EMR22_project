@@ -22,5 +22,7 @@ You may have to use a different webcam-id for your webcam / robot-mounted cam. I
 ```roslaunch ur5_moveit_config demo_gazebo.launch```
 2. Start our script
 ```roslaunch emr22_project yolo_move_robot.launch```
-Warning: You should try our control system in simulation first and adapt Kp in `nodes/yolo_move_robot.py`!
-Hint: You can not view the detected objects in Rqt if you called the move-Script! 
+
+**Warning**: You should try our control system in simulation first and adapt Kp in `nodes/yolo_move_robot.py`!
+
+**Hint**: You can not view the detected objects in Rqt if you called the move-Script! 
